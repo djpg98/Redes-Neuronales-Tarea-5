@@ -1,3 +1,4 @@
+Con 0.3
 Lambda = 0 => MSE: 40.216334768148926
 Lambda = 0.5 => MSE: 0.006452713475666342
 Lambda = 0.9 => MSE: 0.009777566150147616
@@ -29,5 +30,9 @@ Repetir estos con width = 0.1 (Creo que el mejor era el de 0.2, pero no estoy cl
  1966  python Experimento1B.py prueba.csv 0.035
  1967  python Experimento1B.py prueba.csv 0.0301
  1968  python Experimento1B.py prueba.csv 0.029
+
+Con 0.01
+Lambda = 0 => MSE (Centers): 8.229041244004867e-32 MSE: 0.0218522168169184
+
 
 

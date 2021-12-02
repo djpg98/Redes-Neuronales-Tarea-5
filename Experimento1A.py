@@ -8,7 +8,7 @@ import csv
 import sys
 import os
 
-width = math.sqrt(0.3)
+width = math.sqrt(0.01)
 
 dataset_20 = ApproximationDataset('Spectra20.csv')
 dataset_20.to_array()
@@ -26,6 +26,15 @@ inverse = np.linalg.inv(phi_matrix)
 weights = np.matmul(inverse, dataset_20.values)
 
 calc = UniversalApproximator(weights, function_array)
+
+total_error = 0
+for feature, expected_value in dataset_20:
+    predicted_output = calc.output(feature)
+    total_error += sample_error(expected_value, predicted_output)
+
+mse = total_error / dataset_20.size()
+print(f"MSE (Centers): {mse}")
+
 
 with open(sys.argv[1], 'w') as outfile:
     writer = csv.writer(outfile) 
