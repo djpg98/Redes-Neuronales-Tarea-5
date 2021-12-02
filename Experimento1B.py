@@ -8,7 +8,11 @@ import csv
 import sys
 import os
 
-width = math.sqrt(0.3)
+#Primer argumento: Nombre del archivo de salida
+#Segundo argumento: Parámetro de regularización
+
+width = math.sqrt(0.1)
+reg = float(sys.argv[2])
 
 dataset_20 = ApproximationDataset('Spectra20.csv')
 dataset_20.to_array()
@@ -22,7 +26,7 @@ for feature, expected_value in dataset_20:
 
 function_array = np.array(function_list)
 phi_matrix = np.array([[phi.output(feature) for phi in function_array] for feature in dataset_20.features])
-inverse = np.linalg.inv(phi_matrix)
+inverse = np.linalg.inv(phi_matrix + reg * np.eye(20))
 weights = np.matmul(inverse, dataset_20.values)
 
 calc = UniversalApproximator(weights, function_array)
@@ -41,4 +45,3 @@ with open(sys.argv[1], 'w') as outfile:
 print(f"MSE: {mse}")
 os.system('Rscript Plots.R 20 ' + sys.argv[1])
         
-

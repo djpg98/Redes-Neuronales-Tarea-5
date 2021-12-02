@@ -1,0 +1,33 @@
+Lambda = 0 => MSE: 40.216334768148926
+Lambda = 0.5 => MSE: 0.006452713475666342
+Lambda = 0.9 => MSE: 0.009777566150147616
+Lambda = 0.3 => MSE: 0.005261047519616992
+Lambda = 0.25 => MSE: 0.005092975057853423
+Lambda = 0.2 => MSE: 0.005028835348105863
+Lambda = 0.1 => MSE: 0.005560645319697073
+Lambda = 0.15 => MSE: 0.005135740878730849
+Lambda = 0.19 => MSE: 0.005033475448162325
+Lambda = 0.195 => MSE: 0.0050302822544549385
+Lambda = 0.21 => MSE: 0.005030818010928694
+Lambda = 0.1999 => MSE: 0.005028847780580116
+Lambda = 10 => MSE: 0.06975645096485757
+Lambda = 29 => MSE: 0.09347250756977502
+Lambda = 0.01 => MSE: 0.008908636411132077
+
+Repetir estos con width = 0.1 (Creo que el mejor era el de 0.2, pero no estoy claro)
+ 1955  python Experimento1B.py prueba.csv 0.2
+ 1956  python Experimento1B.py prueba.csv 0.1
+ 1957  python Experimento1B.py prueba.csv 0.05
+ 1958  python Experimento1B.py prueba.csv 0.15
+ 1959  python Experimento1B.py prueba.csv 0.1
+ 1960  python Experimento1B.py prueba.csv 0.01
+ 1961  python Experimento1B.py prueba.csv 0.05
+ 1962  python Experimento1B.py prueba.csv 0.1
+ 1963  python Experimento1B.py prueba.csv 0.04
+ 1964  python Experimento1B.py prueba.csv 0.03
+ 1965  python Experimento1B.py prueba.csv 0.025
+ 1966  python Experimento1B.py prueba.csv 0.035
+ 1967  python Experimento1B.py prueba.csv 0.0301
+ 1968  python Experimento1B.py prueba.csv 0.029
+
+
