@@ -75,7 +75,7 @@ class DatasetMixin:
 
 class ApproximationDataset(DatasetMixin):
 
-    def __init__(self, datafile):
+    def __init__(self, datafile, center_number=None):
 
         self.features = []
         self.values = []
@@ -96,6 +96,24 @@ class ApproximationDataset(DatasetMixin):
         index_list = [i for i in range(len(self.features))]
         self.training_data = random.sample(index_list, int(0.80 * len(self.features)))
         self.validation_data = [index for index in index_list if index not in self.training_data]
+
+        if center_number is not None:
+
+            self.center_points = random.sample(index_list, center_number)
+            self.cluster_points = [index for index in index_list if index not in self.center_points]
+        else:
+            self.center_points = []
+            self.cluster_points = []
+
+    def center_set(self):
+
+        return np.array([self.features[index] for index in self.center_points])
+
+    def random_cluster_point(self):
+
+        index = random.randint(0, len(self.cluster_points))
+        return self.features[index]
+            
 
     def to_array(self):
 

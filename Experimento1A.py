@@ -8,7 +8,7 @@ import csv
 import sys
 import os
 
-width = math.sqrt(0.01)
+width = math.sqrt(0.1)
 
 dataset_20 = ApproximationDataset('Spectra20.csv')
 dataset_20.to_array()
@@ -22,6 +22,7 @@ for feature, expected_value in dataset_20:
 
 function_array = np.array(function_list)
 phi_matrix = np.array([[phi.output(feature) for phi in function_array] for feature in dataset_20.features])
+#print(np.linalg.cond(phi_matrix))
 inverse = np.linalg.inv(phi_matrix)
 weights = np.matmul(inverse, dataset_20.values)
 

@@ -15,24 +15,5 @@ Lambda = 10 => MSE: 0.06975645096485757
 Lambda = 29 => MSE: 0.09347250756977502
 Lambda = 0.01 => MSE: 0.008908636411132077
 
-Repetir estos con width = 0.1 (Creo que el mejor era el de 0.2, pero no estoy claro)
- 1955  python Experimento1B.py prueba.csv 0.2
- 1956  python Experimento1B.py prueba.csv 0.1
- 1957  python Experimento1B.py prueba.csv 0.05
- 1958  python Experimento1B.py prueba.csv 0.15
- 1959  python Experimento1B.py prueba.csv 0.1
- 1960  python Experimento1B.py prueba.csv 0.01
- 1961  python Experimento1B.py prueba.csv 0.05
- 1962  python Experimento1B.py prueba.csv 0.1
- 1963  python Experimento1B.py prueba.csv 0.04
- 1964  python Experimento1B.py prueba.csv 0.03
- 1965  python Experimento1B.py prueba.csv 0.025
- 1966  python Experimento1B.py prueba.csv 0.035
- 1967  python Experimento1B.py prueba.csv 0.0301
- 1968  python Experimento1B.py prueba.csv 0.029
-
-Con 0.01
-Lambda = 0 => MSE (Centers): 8.229041244004867e-32 MSE: 0.0218522168169184
-
 
 

@@ -79,3 +79,15 @@ class GaussianV2(ActivationFunction):
 
     def first_derivative_output(self, x):
         raise Exception("NOT IMPLEMENTED")
+
+class Linear(ActivationFunction):
+
+    def __init__(self, slope=1, intercept=0):
+        self.slope = slope
+        self.intercept = intercept
+
+    def output(self, x):
+        return self.slope * x  + self.intercept
+
+    def first_derivative_output(self, x):
+        return self.slope
