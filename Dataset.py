@@ -73,8 +73,17 @@ class DatasetMixin:
     def shuffle_training_data(self):
         random.shuffle(self.training_data)
 
+""" Clase que hereda de DatasetMixin utilizada para resolver el problema de
+    aproximación de la tarea 5
+"""
 class ApproximationDataset(DatasetMixin):
 
+    """ Constructor de la clase:
+        Parámetros:
+            - datafile: Archivo csv de donde se extrae la información
+            - cente_number: Número de datos a utilizar como centros
+
+    """
     def __init__(self, datafile, center_number=None):
 
         self.features = []
@@ -105,16 +114,18 @@ class ApproximationDataset(DatasetMixin):
             self.center_points = []
             self.cluster_points = []
 
+    """ Devuelve un vector con los datos a utilizar como centros """
     def center_set(self):
 
         return np.array([self.features[index] for index in self.center_points])
 
+    """ Devuelve un punto aleatorio que no sea centro """
     def random_cluster_point(self):
 
         index = random.randint(0, len(self.cluster_points))
         return self.features[index]
             
-
+    """ Vuelve las listas de features y values arrays de numpy para optimizar """
     def to_array(self):
 
         self.features = np.array(self.features)

@@ -3,13 +3,23 @@ from Adaline import Adaline
 import numpy as np
 import csv
 
+""" Clase que representa una neurona de capa escondida de una red RBF"""
 class RBFNeuron:
 
+    """ Constructor de la clase
+        Parámetros:
+            - center: Centro que utilizará esta neurona
+            - phi_function: Función de activación de la neurona
+    """
     def __init__(self, center, phi_function):
 
         self.center = center
         self.phi_function = phi_function
 
+    """ Produce la salida de la neurona dado un vector de entrada
+        Parámetros:
+            - input_vector: Vector de entrada
+    """
     def output(self, input_vector):
 
         if (len(input_vector) == 1):
@@ -17,20 +27,42 @@ class RBFNeuron:
         else:
             return self.phi_function.output(np.linalg.norm(input_vector - self.center))
 
+""" Clase que representa una red RBF"""
 class RBFNetwork:
 
+    """ Constructor de la clase
+        Parámetros:
+            - rbf_list: Lista de RBFNeuron que formarán la capa oculta de la red RBF    
+    """
     def __init__(self, rbf_list):
 
         self.rbf_list = np.array(rbf_list)
         self.adaline = Adaline(len(rbf_list))
 
+    """ Produce la salida de la capa oculta dado un vector de entrada
+        Parámetros:
+            - input_vector: Vector de entrada
+    """
     def hidden_layer_output(self, input_vector):
         return np.concatenate((np.ones(1), np.array([neuron.output(input_vector) for neuron in self.rbf_list])))
 
+    """ Produce la salida de la red dado un vector de entrada
+        Parámetros:
+            - input_vector: Vector de entrada
+    """
     def output(self, input_vector):
         adaline_input = np.concatenate((np.ones(1), np.array([neuron.output(input_vector) for neuron in self.rbf_list])))
         return self.adaline.output(adaline_input)
 
+    """ Entrena al Adaline que produce la salida de la red
+        Parámetros:
+            - dataset: Dataset que contiene los datos del problema a analizar
+            - epochs: Número de epochs que debe durar el entrenamiento
+            - learning_rate: Tasa de aprendizaje
+            - save_training_error: Nombre del archivo csv (Debe incluir .csv) donde
+              se guardará la información del MSE en cada epoch del entrenamiento
+    
+    """
     def train_network(self, dataset, epochs, learning_rate, save_training_error=''):
 
         if save_training_error != '':
@@ -78,6 +110,8 @@ class RBFNetwork:
         Parámetros:
             - Dataset: Instancia de una clase que hereda el mixin DatasetMixin que carga un dataset
               de un archivo csv y permite realizar ciertas operaciones sobre el mismo
+            - save_output: Archivo donde se guarda el output de la red para cada dato en el conjunto
+              a evaluar
     """
     def eval(self, dataset, save_output=''):
 

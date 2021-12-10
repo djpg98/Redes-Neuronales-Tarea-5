@@ -65,7 +65,6 @@ class Adaline(Perceptron):
             - save_training_error: Nombre de un archivo csv en el que se guardará el error promedio
               para cada epoch
     """
-    #Fix this one when you know how to train for RBF
     def train(self, dataset, epochs, learning_rate, verbose=False, save_training_error=''):
         #No hace falta hacer dataset.add_bias() porque en en la pregunta 3
         #el bias se añade al momento de crear el vector de características 
