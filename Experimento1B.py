@@ -8,9 +8,9 @@ import csv
 import sys
 import os
 
-#Primer argumento: Nombre del archivo de salida
+#Primer argumento: Nombre del archivo de salida (Debe incluir extensión csv) (Output del aproximador)
 #Segundo argumento: Parámetro de regularización
-#Tercer argumento: MSE_FILE
+#Tercer argumento: MSE_FILE (Un archivo en el cual se salva el MSE. Idealmente un txt)
 
 width = math.sqrt(0.1)
 reg = float(sys.argv[2])

@@ -6,9 +6,9 @@ import math
 import os
 import sys
 
-#Primer argumento: Nombre del archivo de salida
+#Primer argumento: Nombre del archivo de salida (Debe incluir extensión csv) (Output de la red)
 #Segundo argumento: Número de centros
-#Tercer argumento: Training error file
+#Tercer argumento: Training error file (Debe incluir extensión csv)
 
 width = math.sqrt(0.5)
 phi_function = GaussianV2(width)

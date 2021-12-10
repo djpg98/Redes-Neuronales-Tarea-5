@@ -6,11 +6,11 @@ import math
 import os
 import sys
 
-#Primer argumento: Nombre del archivo de salida
-#Segundo argumento: Archivo con centros
-#Tercer argumento: Training error file
+#Primer argumento: Nombre del archivo de salida (Debe incluir extensión csv) (Output de la red)
+#Segundo argumento: Archivo con centros (Debe incluir extensión npy)
+#Tercer argumento: Training error file (Debe incluir extensión csv)
 
-width = math.sqrt(0.05)
+width = math.sqrt(0.01)
 phi_function = GaussianV2(width)
 center_number = sys.argv[2]
 

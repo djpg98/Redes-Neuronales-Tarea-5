@@ -8,6 +8,8 @@ import csv
 import sys
 import os
 
+#Primer argumento: Nombre del archivo de salida (Debe incluir extensión csv) (Output del aproximador)
+
 width = math.sqrt(0.1)
 
 dataset_20 = ApproximationDataset('Spectra20.csv')
